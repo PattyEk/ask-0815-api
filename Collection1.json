@@ -1,0 +1,481 @@
+{
+	"info": {
+		"_postman_id": "b4a9c61f-29c7-4aae-93ef-6f096fd6be47",
+		"name": "Collection1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27210920",
+		"_collection_link": "https://grey-desert-861209.postman.co/workspace/ASK-081523~15785e22-33fa-4408-9804-e375e59af585/collection/27210920-b4a9c61f-29c7-4aae-93ef-6f096fd6be47?action=share&creator=27210920&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "sign-in(Teacher)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"user's role is a TEACHER\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.user.role).to.eql(\"TEACHER\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "host",
+						"value": "ask-stage.portnov.com"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer null"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"teacher@gmail.com\",\"password\":\"12345Abc\"}"
+				},
+				"url": {
+					"raw": "http://ask-stage.portnov.com/api/v1/sign-in",
+					"protocol": "http",
+					"host": [
+						"ask-stage",
+						"portnov",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "quiz-Create Quiz",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "host",
+						"value": "ask-stage.portnov.com"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlYWNoZXJAZ21haWwuY29tIiwiaWF0IjoxNjk0MTg5MDI5LCJleHAiOjE2OTQyNzU0Mjl9.BvrIkkrJXZxnEO1N1uyvamOBcbhBh_cyFAYXxd-iQIE"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":null,\"name\":\"Helllo test\",\"totalScore\":15,\"passingPercentage\":75,\"showStopperQuestion\":null,\"questions\":[{\"type\":\"SINGLE_CHOICE\",\"question\":\"1+2?\",\"score\":5,\"options\":[\"3\",\"4\"],\"answer\":0,\"hasOtherOption\":null},{\"type\":\"SINGLE_CHOICE\",\"question\":\"2+3?\",\"score\":5,\"options\":[\"5\",\"6\"],\"answer\":0,\"hasOtherOption\":null},{\"type\":\"SINGLE_CHOICE\",\"question\":\"5+2?\",\"score\":5,\"options\":[\"7\",\"8\"],\"answer\":0,\"hasOtherOption\":null}],\"createdAt\":null,\"updatedAt\":null}"
+				},
+				"url": {
+					"raw": "{{stageUrl}}/quiz",
+					"host": [
+						"{{stageUrl}}"
+					],
+					"path": [
+						"quiz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "quizzes-create quiz",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "host",
+						"value": "ask-stage.portnov.com"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlYWNoZXJAZ21haWwuY29tIiwiaWF0IjoxNjk0MTg5MDA5LCJleHAiOjE2OTQyNzU0MDl9.N2BMbwW_fPY2jywltQzUfpEfTnxi5Tpi05VfZRpJxmk"
+					}
+				],
+				"url": {
+					"raw": "{{stageUrl}}/quizzes",
+					"host": [
+						"{{stageUrl}}"
+					],
+					"path": [
+						"quizzes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://ask-stage.portnov.com/api/v1/users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "host",
+						"value": "ask-stage.portnov.com"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlYWNoZXJAZ21haWwuY29tIiwiaWF0IjoxNjk0MTg5NTkyLCJleHAiOjE2OTQyNzU5OTJ9.4DSH0qi0DvzU1V6HBmVGrvPe2ugJpVWZQElqhXeVf5I"
+					}
+				],
+				"url": {
+					"raw": "http://ask-stage.portnov.com/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"ask-stage",
+						"portnov",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users/change-role",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"message\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"User role was updated\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "host",
+						"value": "ask-stage.portnov.com"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlYWNoZXJAZ21haWwuY29tIiwiaWF0IjoxNjk0MTg5NTgzLCJleHAiOjE2OTQyNzU5ODN9.qSXhX8cpkUpMZiKpZ0uWVKVDfsEUCNleQSQ56Vd7o6U"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"role\":\"STUDENT\"}"
+				},
+				"url": {
+					"raw": "{{stageUrl}}/users/change-role/27092",
+					"host": [
+						"{{stageUrl}}"
+					],
+					"path": [
+						"users",
+						"change-role",
+						"27092"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://ask-stage.portnov.com/api/v1/assignments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "host",
+						"value": "ask-stage.portnov.com"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlYWNoZXJAZ21haWwuY29tIiwiaWF0IjoxNjk0MTg5NTU4LCJleHAiOjE2OTQyNzU5NTh9.NixJ5Y1p8aHOvep0gNcEBEcIXV3G99HeIe6zJx9Ha_0"
+					}
+				],
+				"url": {
+					"raw": "http://ask-stage.portnov.com/api/v1/assignments",
+					"protocol": "http",
+					"host": [
+						"ask-stage",
+						"portnov",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"assignments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign-in(Student)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"user's role is a STUDENT\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.user.role).to.eql(\"STUDENT\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "host",
+						"value": "ask-stage.portnov.com"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer null"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"penaka29@gmail.com\",\"password\":\"Abc12345\"}"
+				},
+				"url": {
+					"raw": "{{stageUrl}}/sign-in",
+					"host": [
+						"{{stageUrl}}"
+					],
+					"path": [
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://ask-stage.portnov.com/api/v1/my-assignments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "host",
+						"value": "ask-stage.portnov.com"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlbmFrYTI5QGdtYWlsLmNvbSIsImlhdCI6MTY5NDE5MDY0NywiZXhwIjoxNjk0Mjc3MDQ3fQ.Y8Cm3AgQg5i9iw2etWb49m8h06zoS9B-LzjTFAPAQPs"
+					}
+				],
+				"url": {
+					"raw": "http://ask-stage.portnov.com/api/v1/my-assignments",
+					"protocol": "http",
+					"host": [
+						"ask-stage",
+						"portnov",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"my-assignments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://ask-stage.portnov.com/api/v1/my-grades",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "host",
+						"value": "ask-stage.portnov.com"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlbmFrYTI5QGdtYWlsLmNvbSIsImlhdCI6MTY5NDE5MDY0NywiZXhwIjoxNjk0Mjc3MDQ3fQ.Y8Cm3AgQg5i9iw2etWb49m8h06zoS9B-LzjTFAPAQPs"
+					}
+				],
+				"url": {
+					"raw": "http://ask-stage.portnov.com/api/v1/my-grades",
+					"protocol": "http",
+					"host": [
+						"ask-stage",
+						"portnov",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"my-grades"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
